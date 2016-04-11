@@ -1,0 +1,82 @@
+<script type="text/javascript">
+    function init_all() {
+        var sm = document.getElementById("selectMode")
+        var selectedmode = sm.options[sm.selectedIndex].value;
+        var path = window.location.pathname;
+        var mode = path.split('/')[2];
+        for (i = 0; i < sm.options.length; i++) {
+            if (sm.options[i].value == mode) {
+                sm.options[i].selected = true;
+                break;
+            }
+        }
+    }
+    function init_sub() {
+        var sm = document.getElementById("selectMode")
+        var selectedmode = sm.options[sm.selectedIndex].value;
+        var path = window.location.pathname;
+        var mode = path.split('/')[2];
+        for (i = 0; i < sm.options.length; i++) {
+            if (sm.options[i].value == mode) {
+                sm.options[i].selected = true;
+                break;
+            }
+        }
+    }
+    function init_dict() {
+        var sm = document.getElementById("selectMode")
+        var selectedmode = sm.options[sm.selectedIndex].value;
+        var path = window.location.pathname;
+        var mode = path.split('/')[2];
+        for (i = 0; i < sm.options.length; i++) {
+            if (sm.options[i].value == mode) {
+                sm.options[i].selected = true;
+                break;
+            }
+        }
+    }
+    function init_web() {
+        var sm = document.getElementById("selectMode")
+        var selectedmode = sm.options[sm.selectedIndex].value;
+        var path = window.location.pathname;
+        var mode = path.split('/')[2];
+        for (i = 0; i < sm.options.length; i++) {
+            if (sm.options[i].value == mode) {
+                sm.options[i].selected = true;
+                break;
+            }
+        }
+    }
+    function req_search() {
+        var q = document.getElementById('q_id')
+        var sm = document.getElementById("selectMode")
+        var mode = sm.options[sm.selectedIndex].value;
+
+        if (q.value.length <= 0) {
+            alert("please, enter keyword")
+            return false
+        }
+        
+      
+        if(mode=="")
+            alert("please, choose mode")
+
+        strURL = "/search/" + mode + "/" + q.value
+       
+        window.location = strURL
+        
+    }
+
+   
+</script>
+<div style="padding-left: 10px;">
+    <select id="selectMode" name="selectMode" size="1" style="border:1px solid #CFCFCF; height:40px;">
+        <option value="allsearch">All Search</option>
+        <option value="websearch">WEB Search</option>
+        <option value="dictsearch">DICT Search</option>
+        <option value="smisearch">SMI Search</option>
+    </select>
+    <input type="text" size="60" name="q" id="q_id" value="{{keyword}}" style="border:1px solid #CFCFCF; vertical-align:middle; padding-left:5px ;height:40px; "
+            onkeydown="if (event.keyCode == 13) javascript: req_search()" />
+    <input type="image" src="/images/search_button.jpg" value="Search" style="height:40px; vertical-align:middle;" onclick="javascript:req_search()" />
+</div>

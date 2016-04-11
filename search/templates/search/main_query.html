@@ -1,0 +1,41 @@
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+</head>
+
+<script type="text/javascript">
+    function req_search() {
+        var q = document.getElementById('q_id')
+        var sm = document.getElementById("selectMode")
+        var mode = sm.options[sm.selectedIndex].value;
+
+        if (q.value.length <= 0) {
+            alert("please, enter keyword")
+            return false
+        }
+        
+        
+        if (mode == "")
+            mode = "smisearch"
+
+        strURL = "/search/" + mode + "/" + q.value
+        window.location = strURL
+    }
+
+</script>
+<div align="center">
+	<select id="selectMode" size="1" style="border:1px solid #0094ff; height:40px;">
+        <option value="allsearch">All Search</option>
+	    <option value="smisearch">SMI Search</option>
+	    <option value="dictsearch">DICT Search</option>
+	    <option value="websearch">WEB Search</option>
+	</select>
+	<input type="text" size="60" name="q" id="q_id" value="{{keyword}}" style="border:1px solid #0094ff; vertical-align:middle; padding-left:5px ;height:40px; "
+	       onkeydown="if (event.keyCode == 13) javascript: req_search()" />
+</div>
+
+<div align="center" style="margin:30px;">
+<input type="submit" value="Boogle 검색" style="border:0; height:35px; width:100px; background-color:#EAEAEA;" onclick="javascript:req_search()" />
+&nbsp;&nbsp;
+<input type="button" value="I'm Feeling Lucky" style="border:0; height:35px; width:120px; background-color:#EAEAEA;" onclick="javascript:req_search()" />
+</div>

@@ -1,0 +1,119 @@
+
+<head>
+<style type="text/css">
+     html, body {
+         height: 100%;
+         margin: 0;
+         padding: 0;
+     }
+
+     #container {
+         min-height: 100%;
+         position: relative;
+     }
+     #container #sub{
+         margin-bottom:20px;
+         min-height: 100%;
+         position: relative;
+         
+     }
+     #container #dict{
+         margin-bottom:20px;
+         min-height: 100%;
+         position: relative;
+     }
+     #container #web {
+         margin-bottom:20px;
+         min-height: 100%;
+         position: relative;
+     }
+     #container #more {
+         min-height: 100%;
+         position: relative;
+         float:right;
+         margin-bottom:20px;
+         
+     }
+     #container #line {
+         position: relative;
+         margin-top:30px;
+         margin-bottom:10px;
+         border: 1px solid #CFCFCF;
+         
+     }
+
+</style>
+
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+</head>
+<div id="container">
+    <div id="sub">
+        <table border="0">
+            {% for item in smi_searchList %}
+            <tr>
+                <td>
+                     <font size="3" face="arial">
+                        {{item.title|safe}}
+                    </font>
+                    <br />
+                    {{item.eng|safe}}
+                    <br />
+                    {{item.kor|safe}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+           {% endfor %}
+        </table>
+        <div id="more" ><a href="http://127.0.0.1:8000/search/smisearch/{{keyword}}">자막 더보기</a></div>
+    </div>
+    <div id="line"></div>
+   <br />
+    <div id="dict">
+        <table border="0">
+            {% for item in dict_searchList %}
+            <tr>
+                <td>
+                    <font size="3" face="arial">
+                        <a href="{{item.link}}" target="_blank">
+                            {{item.title|safe}}
+                        </a>
+                    </font>
+                    <br />
+                    {{item.preview|safe}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            
+            {% endfor %}
+            
+        </table>
+        <div id="more"><a href="http://127.0.0.1:8000/search/smisearch/{{keyword}}">사전 더보기</a></div>
+    </div>
+    <div id="line"></div>
+    <br />
+    <div id="web">
+        <table border="0">
+            {% for item in web_searchList %}
+            <tr>
+                <td>
+                    <font size="3" face="arial">
+                        <a href="{{item.link}}" target="_blank">
+                            {{item.title|safe}}
+                        </a>
+                    </font>
+                    <br />
+                    {{item.preview|safe}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            
+            {% endfor %}
+            
+        </table>
+        <div id="more"><a href="http://127.0.0.1:8000/search/smisearch/{{keyword}}">웹 더보기</a></div>
+    </div>
+    <div id="line"></div>
+</div>

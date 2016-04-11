@@ -1,0 +1,20 @@
+<table border="0">
+   
+    {% for item in searchList %}
+    <tr>
+        <td>
+            <br />
+            <font size="3" face="arial">
+                    {{item.title|safe}}
+            </font>
+            <br />
+            {{item.eng|safe}}
+            <br />
+            {{item.kor|safe}}
+        </td>
+    </tr>
+<tr>
+    <td>&nbsp;</td>
+</tr>
+{% endfor %}
+</table>

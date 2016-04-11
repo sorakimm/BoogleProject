@@ -1,0 +1,27 @@
+<font size="2" face="arial" color="black">
+     {%  ifnotequal firstPage 1 %}
+        <a href="/search/{{mode}}/{{keyword}}/Page{{prevPage}}">
+        << Prev Page
+        </a>&nbsp;
+    {% endifnotequal %}
+</font>
+<font size="2" face="arial" color="black">
+    {% for i in pageList %}
+            {%  ifequal i page %}
+                <a style="color:#353535;" href="/search/{{mode}}/{{keyword}}/Page{{i}}">
+                <b>{{ i }}</b>
+            {% endifequal %}
+            {% ifnotequal i page %}
+               <a href="/search/{{mode}}/{{keyword}}/Page{{i}}">
+                {{ i }}
+            {% endifnotequal %}
+            </a>&nbsp;
+    {% endfor %}
+</font>
+<font size="2" face="arial" color="black">
+    {% ifequal pageList|length 10 %}
+    <a href="/search/{{mode}}/{{keyword}}/Page{{nextPage}}">
+        Next Page >>
+    </a>
+    {% endifequal %}
+</font>
